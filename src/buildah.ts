@@ -11,6 +11,7 @@ import { isStorageDriverOverlay, findFuseOverlayfsPath, getFullImageName, kernel
 export interface BuildahConfigSettings {
     entrypoint?: string[];
     envs?: string[];
+    volumes?: string[];
     ports?: string[];
     workingdir?: string;
     arch?: string;
@@ -238,6 +239,12 @@ export class BuildahCli implements Buildah {
             settings.envs.forEach((env) => {
                 args.push("--env");
                 args.push(env);
+            });
+        }
+        if (settings.volumes) {
+            settings.volumes.forEach((volume) => {
+                args.push("--volume");
+                args.push(volume);
             });
         }
         if (settings.arch) {

@@ -372,6 +372,7 @@ async function doBuildFromScratch(
     const ports = getInputList(Inputs.PORT);
     const workingDir = core.getInput(Inputs.WORKDIR);
     const envs = getInputList(Inputs.ENVS);
+    const volumes = getInputList(Inputs.VOLUMES);
     const squash = core.getInput(Inputs.SQUASH) === "true";
     const tlsVerify = core.getInput(Inputs.TLS_VERIFY) === "true";
 
@@ -390,6 +391,7 @@ async function doBuildFromScratch(
                 ports,
                 workingdir: workingDir,
                 envs,
+	        volumes,
                 arch,
                 labels,
             };
@@ -405,6 +407,7 @@ async function doBuildFromScratch(
             ports,
             workingdir: workingDir,
             envs,
+	    volumes,
             labels,
         };
         await cli.config(containerId, newImageConfig);
