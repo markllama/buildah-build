@@ -165,6 +165,11 @@ export enum Inputs {
      * Required: false
      * Default: None.
      */
+
+    VOLUMES = "volumes",
+    /**
+     *
+     */
     WORKDIR = "workdir",
 }
 
