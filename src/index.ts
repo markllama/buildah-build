@@ -391,7 +391,7 @@ async function doBuildFromScratch(
                 ports,
                 workingdir: workingDir,
                 envs,
-	        volumes,
+                volumes,
                 arch,
                 labels,
             };
@@ -407,7 +407,7 @@ async function doBuildFromScratch(
             ports,
             workingdir: workingDir,
             envs,
-	    volumes,
+            volumes,
             labels,
         };
         await cli.config(containerId, newImageConfig);
